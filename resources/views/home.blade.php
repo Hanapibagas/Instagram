@@ -8,6 +8,8 @@
                 <div class="card-header">Selamat Datang</div>
 
                 <div class="card-body">
+                    <h1> User : {{ Auth::user()->username }} - {{ Auth::user()->fullname }} </h1>
+                    <p>{{ Auth::user()->bio }}</p>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}

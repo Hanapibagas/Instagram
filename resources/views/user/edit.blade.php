@@ -7,11 +7,12 @@
             <div class="card">
                 <div class="card-header"> Update Profil {{ $user->username }}</div>
                 <div class="card-body">
-                    <form method="POST" action="/user/update">
+                    <form method="POST" action="/user/edit">
                         @csrf
+                        @method('PUT')
 
                         <x-input label="Username" name="username" :object="$user" />
-                        <x-input label="Email" name="email" type="email" :object="$user" />
+                        <x-input label="Fulllname" name="fullname" :object="$user" />
                         <x-input label="Biodata" name="bio"  :object="$user" />
 
                         <p>
