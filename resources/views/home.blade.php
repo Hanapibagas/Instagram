@@ -8,7 +8,7 @@
                 <div class="card-header">Selamat Datang</div>
 
                 <div class="card-body">
-                    <img src="{{ asset('images/avatar/' . $user->avatar) }}" alt="Foto profil {{ $user->username }}" width="150">
+                    <x-avatar :user="$user" />
                     <h1> User : {{ $user->username }} - {{ $user->fullname }} </h1>
                     <p>{{ $user->bio }}</p>
                     @if (session('status'))
