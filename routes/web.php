@@ -17,4 +17,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('user/edit', 'UserController@edit');
 Route::put('user/edit', 'UserController@update');
 
-Route::resources('posts', PostController::class);
+Route::resource('posts', PostController::class);
