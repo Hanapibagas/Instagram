@@ -17,6 +17,9 @@
                         </div>
                     @endif
 
+                    <a href="/post/create">Upload</a>
+                    <br>
+
                     Hallo
                 </div>
             </div>

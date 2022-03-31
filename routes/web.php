@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +16,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('user/edit', 'UserController@edit');
 Route::put('user/edit', 'UserController@update');
 
-Route::resource('posts', PostController::class);
+Route::resource('post', PostController::class);
