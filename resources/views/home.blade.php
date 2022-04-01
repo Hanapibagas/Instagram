@@ -20,7 +20,13 @@
                     <a href="/post/create">Upload</a>
                     <br>
 
-                    Hallo
+                    <h3>Feed</h3>
+                    @foreach ( $user->posts as $post )
+                        <li>
+                            <img src="{{ asset('images/posts/' . $post->image) }}" alt="{{ $post->caption }}" width="200" height="200">
+                            <a href="/post/{{ $post->id }}/edit">Edit</a>
+                        </li>
+                    @endforeach
                 </div>
             </div>
         </div>
