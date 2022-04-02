@@ -10,10 +10,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('@{username}', 'UserController@show');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('user/edit', 'UserController@edit');
-Route::put('user/edit', 'UserController@update');
-
-Route::resource('post', PostController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('user/edit', 'UserController@edit');
+    Route::put('user/edit', 'UserController@update');
+    Route::resource('post', PostController::class);
+});

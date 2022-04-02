@@ -47,7 +47,7 @@ class PostController extends Controller
         if ($request->image) {
             $image_img = $request->image;
             $imageName = $user->username . '-' . time() . '.' . $image_img->extension();
-            $image_img->move(public_path('images/Posts'), $imageName);
+            $image_img->move(public_path('images/posts'), $imageName);
         }
 
         $user->posts()->create([
@@ -91,6 +91,9 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::findOrfail($id);
+
+        if ($post->user_id != Auth::user()->id)
+            abort(403);
 
         $request->validate([
             'caption' => 'max:155',

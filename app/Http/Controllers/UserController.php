@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function show($username)
+    {
+        $user = User::where('username', $username)->first();
+        if (!$user) abort(404);
+
+        return view('user.profile', compact('user'));
+    }
+
+
+
+
     public function edit()
     {
         // mengapa harus mendapatkan info user ? karna ini bagian mengedit
